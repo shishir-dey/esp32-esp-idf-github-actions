@@ -1,0 +1,24 @@
+name: Builder
+
+on: [push]
+
+jobs:
+  builder:
+    name: Builder for the esp32-esp-idf-ci-template project
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install ESP-IDF v4.2.2
+        uses: CalinRadoni/esp-idf-v4-action@v2
+        with:
+          esp_idf_version: 'v4.2.2'
+
+      - name: Build
+        run: |
+          source ~/esp/esp-idf/export.sh
+          idf.py fullclean
+          idf.py reconfigure
+          idf.py build
