@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   builder:
-    name: Builder for the esp32-esp-idf-ci-template project
+    name: Builder for the esp32-esp-idf-github-actions project
     runs-on: ubuntu-20.04
 
     steps:
